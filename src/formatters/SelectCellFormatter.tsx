@@ -88,7 +88,7 @@ export function SelectCellFormatter({
         tabIndex={tabIndex}
         className={checkboxInputClassname}
         disabled={disabled}
-        checked={value}
+        checked={disabled ? false : value}
         onChange={handleChange}
         onClick={onClick}
       />

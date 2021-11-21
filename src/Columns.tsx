@@ -7,7 +7,6 @@ export const SELECT_COLUMN_KEY = 'select-row';
 
 function SelectFormatter(props: FormatterProps<unknown>) {
   const [isRowSelected, onRowSelectionChange] = useRowSelection();
-
   return (
     <SelectCellFormatter
       aria-label="Select"

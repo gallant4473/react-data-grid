@@ -120,6 +120,8 @@ export interface DataGridProps<R, SR = unknown, K extends Key = Key> extends Sha
    */
   /** Set of selected row keys */
   selectedRows?: Maybe<ReadonlySet<K>>;
+  /* Set of disabled row keys */
+  rowsDisabled?: Maybe<ReadonlySet<K>>;
   /** Function called whenever row selection is changed */
   onSelectedRowsChange?: Maybe<(selectedRows: Set<K>) => void>;
   /** Used for multi column sorting */
@@ -173,6 +175,7 @@ function DataGrid<R, SR, K extends Key>(
   {
     // Grid and data Props
     columns: rawColumns,
+    rowsDisabled = new Set(),
     rows: rawRows,
     summaryRows,
     rowKeyGetter,
@@ -441,7 +444,9 @@ function DataGrid<R, SR, K extends Key>(
         for (let i = previousRowIdx + step; i !== rowIdx; i += step) {
           const row = rows[i];
           if (isGroupRow(row)) continue;
-          newSelectedRows.add(rowKeyGetter(row));
+          if (!rowsDisabled?.has(rowKeyGetter(row))) {
+            newSelectedRows.add(rowKeyGetter(row));
+          }
         }
       }
     } else {

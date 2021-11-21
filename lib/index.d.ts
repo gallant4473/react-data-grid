@@ -130,6 +130,7 @@ export declare interface DataGridProps<R, SR = unknown, K extends Key = Key> ext
      */
     /** Set of selected row keys */
     selectedRows?: Maybe<ReadonlySet<K>>;
+    rowsDisabled?: Maybe<ReadonlySet<K>>;
     /** Function called whenever row selection is changed */
     onSelectedRowsChange?: Maybe<(selectedRows: Set<K>) => void>;
     /** Used for multi column sorting */

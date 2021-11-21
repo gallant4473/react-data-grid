@@ -29,11 +29,11 @@ export default {
   plugins: [
     linaria({
       preprocessor: 'none',
-      classNameSlug(hash) {
-        // We add the package version as suffix to avoid style conflicts
-        // between multiple versions of RDG on the same page.
-        return `${hash}${pkg.version.replaceAll('.', '')}`;
-      }
+      // classNameSlug(hash) {
+      //   // We add the package version as suffix to avoid style conflicts
+      //   // between multiple versions of RDG on the same page.
+      //   return `${hash}${pkg.version.replaceAll('.', '')}`;
+      // }
     }),
     postcss({
       plugins: [postcssNested],

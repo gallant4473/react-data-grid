@@ -29,6 +29,7 @@ function Row<R, SR>(
     top,
     height,
     onRowChange,
+    otherFunctions,
     selectCell,
     ...props
   }: RowRendererProps<R, SR>,
@@ -82,6 +83,7 @@ function Row<R, SR>(
           onRowDoubleClick={onRowDoubleClick}
           onRowChange={handleRowChange}
           selectCell={selectCell}
+          otherFunctions={otherFunctions}
         />
       );
     }

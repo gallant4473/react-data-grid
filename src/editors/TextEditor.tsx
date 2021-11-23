@@ -38,7 +38,7 @@ export default function TextEditor<TRow, TSummaryRow>({
   row,
   column,
   onRowChange,
-  onClose
+  onClose,
 }: EditorProps<TRow, TSummaryRow>) {
   return (
     <input

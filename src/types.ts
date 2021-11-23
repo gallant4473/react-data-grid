@@ -73,6 +73,7 @@ export interface FormatterProps<TRow, TSummaryRow = unknown> {
   row: TRow;
   isCellSelected: boolean;
   onRowChange: (row: TRow) => void;
+  otherFunctions: object;
 }
 
 export interface SummaryFormatterProps<TSummaryRow, TRow = unknown> {
@@ -89,6 +90,7 @@ export interface GroupFormatterProps<TRow, TSummaryRow = unknown> {
   isExpanded: boolean;
   isCellSelected: boolean;
   toggleGroup: () => void;
+  otherFunctions: object;
 }
 
 export interface EditorProps<TRow, TSummaryRow = unknown> {
@@ -96,6 +98,7 @@ export interface EditorProps<TRow, TSummaryRow = unknown> {
   row: TRow;
   onRowChange: (row: TRow, commitChanges?: boolean) => void;
   onClose: (commitChanges?: boolean) => void;
+  otherFunctions: object;
 }
 
 export interface HeaderRendererProps<TRow, TSummaryRow = unknown> {
@@ -106,6 +109,7 @@ export interface HeaderRendererProps<TRow, TSummaryRow = unknown> {
   allRowsSelected: boolean;
   onAllRowsSelectionChange: (checked: boolean) => void;
   isCellSelected: boolean;
+  otherFunctions: object;
 }
 
 export interface CellRendererProps<TRow, TSummaryRow>
@@ -122,6 +126,7 @@ export interface CellRendererProps<TRow, TSummaryRow>
   isCellSelected: boolean;
   dragHandle: ReactElement<React.HTMLAttributes<HTMLDivElement>> | undefined;
   onRowChange: (newRow: TRow) => void;
+  otherFunctions: object;
 }
 
 export interface RowRendererProps<TRow, TSummaryRow = unknown>
@@ -148,6 +153,7 @@ export interface RowRendererProps<TRow, TSummaryRow = unknown>
     column: CalculatedColumn<TRow, TSummaryRow>,
     enableEditor?: Maybe<boolean>
   ) => void;
+  otherFunctions: object;
 }
 
 export interface RowsChangeData<R, SR = unknown> {

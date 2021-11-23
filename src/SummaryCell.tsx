@@ -11,6 +11,7 @@ interface SharedCellRendererProps<R, SR>
 
 interface SummaryCellProps<R, SR> extends SharedCellRendererProps<R, SR> {
   row: SR;
+  otherFunctions: object
 }
 
 function SummaryCell<R, SR>({
@@ -18,7 +19,8 @@ function SummaryCell<R, SR>({
   colSpan,
   row,
   isCellSelected,
-  selectCell
+  selectCell,
+  otherFunctions = {}
 }: SummaryCellProps<R, SR>) {
   const { ref, tabIndex, onFocus } = useRovingCellRef(isCellSelected);
   const { summaryFormatter: SummaryFormatter, summaryCellClass } = column;
@@ -45,7 +47,7 @@ function SummaryCell<R, SR>({
       onFocus={onFocus}
     >
       {SummaryFormatter && (
-        <SummaryFormatter column={column} row={row} isCellSelected={isCellSelected} />
+        <SummaryFormatter otherFunctions={otherFunctions} column={column} row={row} isCellSelected={isCellSelected} />
       )}
     </div>
   );

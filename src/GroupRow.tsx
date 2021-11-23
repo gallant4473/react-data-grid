@@ -25,6 +25,7 @@ export interface GroupRowRendererProps<R, SR>
   isRowSelected: boolean;
   selectGroup: (rowIdx: number) => void;
   toggleGroup: (expandedGroupId: unknown) => void;
+  otherFunctions: object;
 }
 
 const groupRow = css`
@@ -54,6 +55,7 @@ function GroupedRow<R, SR>({
   isRowSelected,
   selectGroup,
   toggleGroup,
+  otherFunctions = {},
   ...props
 }: GroupRowRendererProps<R, SR>) {
   const { ref, tabIndex, className } = useRovingRowRef(selectedCellIdx);
@@ -100,6 +102,7 @@ function GroupedRow<R, SR>({
             row={row}
             groupColumnIndex={idx}
             toggleGroup={toggleGroup}
+            otherFunctions={otherFunctions}
           />
         ))}
       </div>

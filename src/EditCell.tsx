@@ -42,7 +42,8 @@ export default function EditCell<R, SR>({
   row,
   onRowChange,
   closeEditor,
-  scrollToCell
+  scrollToCell,
+  otherFunctions = {}
 }: EditCellProps<R, SR>) {
   const frameRequestRef = useRef<number | undefined>();
   const commitOnOutsideClick = column.editorOptions?.commitOnOutsideClick !== false;
@@ -119,9 +120,9 @@ export default function EditCell<R, SR>({
     >
       {column.editor != null && (
         <>
-          <column.editor column={column} row={row} onRowChange={onRowChange} onClose={onClose} />
+          <column.editor column={column} row={row} onRowChange={onRowChange} otherFunctions={otherFunctions} onClose={onClose} />
           {column.editorOptions?.renderFormatter && (
-            <column.formatter column={column} row={row} isCellSelected onRowChange={onRowChange} />
+            <column.formatter column={column} row={row} otherFunctions={otherFunctions} isCellSelected onRowChange={onRowChange} />
           )}
         </>
       )}

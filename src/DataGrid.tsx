@@ -95,7 +95,7 @@ export interface DataGridProps<R, SR = unknown, K extends Key = Key> extends Sha
   /** The getter should return a unique key for each row */
   rowKeyGetter?: Maybe<(row: R) => K>;
   onRowsChange?: Maybe<(rows: R[], data: RowsChangeData<R, SR>) => void>;
-
+  otherFunctions?: Maybe <object>;
   /**
    * Dimensions props
    */
@@ -210,6 +210,7 @@ function DataGrid<R, SR, K extends Key>(
     className,
     style,
     rowClass,
+    otherFunctions = {},
     // ARIA
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy,
@@ -866,6 +867,7 @@ function DataGrid<R, SR, K extends Key>(
         onFill={onFill}
         setDragging={setDragging}
         setDraggedOverRowIdx={setDraggedOverRowIdx}
+        otherFunctions={otherFunctions}
       />
     );
   }
@@ -906,6 +908,7 @@ function DataGrid<R, SR, K extends Key>(
         scrollToCell={() => {
           scrollToCell(selectedPosition);
         }}
+        otherFunctions={otherFunctions}
       />
     );
   }
@@ -978,6 +981,7 @@ function DataGrid<R, SR, K extends Key>(
             isRowSelected={isGroupRowSelected}
             selectGroup={selectGroupLatest}
             toggleGroup={toggleGroupLatest}
+            otherFunctions={otherFunctions}
           />
         );
         continue;
@@ -1020,6 +1024,7 @@ function DataGrid<R, SR, K extends Key>(
           selectCell={selectViewportCellLatest}
           selectedCellDragHandle={getDragHandle(rowIdx)}
           selectedCellEditor={getCellEditor(rowIdx)}
+          otherFunctions={otherFunctions}
         />
       );
     }
@@ -1068,6 +1073,7 @@ function DataGrid<R, SR, K extends Key>(
         selectedCellIdx={isHeaderRowSelected ? selectedPosition.idx : undefined}
         selectCell={selectHeaderCellLatest}
         shouldFocusGrid={!selectedCellIsWithinSelectionBounds}
+        otherFunctions={otherFunctions}
       />
       {rows.length === 0 && noRowsFallback ? (
         noRowsFallback
@@ -1091,6 +1097,7 @@ function DataGrid<R, SR, K extends Key>(
                 lastFrozenColumnIndex={lastFrozenColumnIndex}
                 selectedCellIdx={isSummaryRowSelected ? selectedPosition.idx : undefined}
                 selectCell={selectSummaryCellLatest}
+                otherFunctions={otherFunctions}
               />
             );
           })}

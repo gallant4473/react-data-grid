@@ -37,6 +37,7 @@ export interface HeaderCellProps<R, SR> extends SharedHeaderRowProps<R, SR> {
   column: CalculatedColumn<R, SR>;
   colSpan: number | undefined;
   isCellSelected: boolean;
+  otherFunctions: object;
 }
 
 export default function HeaderCell<R, SR>({
@@ -49,7 +50,8 @@ export default function HeaderCell<R, SR>({
   sortColumns,
   onSortColumnsChange,
   selectCell,
-  shouldFocusGrid
+  shouldFocusGrid,
+  otherFunctions = {}
 }: HeaderCellProps<R, SR>) {
   const { ref, tabIndex, onFocus } = useRovingCellRef(isCellSelected);
   const sortIndex = sortColumns?.findIndex((sort) => sort.columnKey === column.key);
@@ -155,6 +157,7 @@ export default function HeaderCell<R, SR>({
           allRowsSelected={allRowsSelected}
           onAllRowsSelectionChange={onAllRowsSelectionChange}
           isCellSelected={isCellSelected}
+          otherFunctions={otherFunctions}
         />
       );
     }
@@ -166,6 +169,7 @@ export default function HeaderCell<R, SR>({
           sortDirection={sortDirection}
           priority={priority}
           isCellSelected={isCellSelected}
+          otherFunctions={otherFunctions}
         >
           {column.name}
         </SortableHeaderCell>

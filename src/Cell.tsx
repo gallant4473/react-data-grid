@@ -33,6 +33,7 @@ function Cell<R, SR>({
   onRowDoubleClick,
   onRowChange,
   selectCell,
+  otherFunctions,
   ...props
 }: CellRendererProps<R, SR>) {
   const { ref, tabIndex, onFocus } = useRovingCellRef(isCellSelected);
@@ -89,6 +90,7 @@ function Cell<R, SR>({
             row={row}
             isCellSelected={isCellSelected}
             onRowChange={onRowChange}
+            otherFunctions={otherFunctions}
           />
           {dragHandle}
         </>

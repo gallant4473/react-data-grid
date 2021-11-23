@@ -17,6 +17,7 @@ interface SummaryRowProps<R, SR> extends SharedRowRendererProps<R, SR> {
   lastFrozenColumnIndex: number;
   selectedCellIdx: number | undefined;
   selectCell: (row: SR, column: CalculatedColumn<R, SR>) => void;
+  otherFunctions: object;
 }
 
 const summaryRow = css`
@@ -45,7 +46,8 @@ function SummaryRow<R, SR>({
   lastFrozenColumnIndex,
   selectedCellIdx,
   selectCell,
-  'aria-rowindex': ariaRowIndex
+  'aria-rowindex': ariaRowIndex,
+  otherFunctions = {}
 }: SummaryRowProps<R, SR>) {
   const { ref, tabIndex, className } = useRovingRowRef(selectedCellIdx);
   const cells = [];
@@ -66,6 +68,7 @@ function SummaryRow<R, SR>({
         row={row}
         isCellSelected={isCellSelected}
         selectCell={selectCell}
+        otherFunctions={otherFunctions}
       />
     );
   }

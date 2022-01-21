@@ -84,18 +84,11 @@ const root = css`
   }
 
   &.rdg-dark {
-    --color-scheme: dark;
-    ${darkTheme}
+    --color-scheme: light;
   }
 
   &.rdg-light {
     --color-scheme: light;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    &:not(.rdg-light) {
-      ${darkTheme}
-    }
   }
 `;
 

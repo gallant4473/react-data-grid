@@ -18,20 +18,36 @@ const lightTheme = `
 `;
 
 const darkTheme = `
-  --color: #ddd;
-  --border-color: #444;
-  --summary-border-color: #555;
-  --background-color: hsl(0deg 0% 13%);
-  --header-background-color: hsl(0deg 0% 10.5%);
-  --row-hover-background-color: hsl(0deg 0% 9%);
-  --row-selected-background-color: hsl(207deg 76% 42%);
-  --row-selected-hover-background-color: hsl(207deg 76% 38%);
+  --color: #000;
+  --border-color: #ddd;
+  --summary-border-color: #aaa;
+  --background-color: hsl(0deg 0% 100%);
+  --header-background-color: hsl(0deg 0% 97.5%);
+  --row-hover-background-color: hsl(0deg 0% 96%);
+  --row-selected-background-color: hsl(207deg 76% 92%);
+  --row-selected-hover-background-color: hsl(207deg 76% 88%);
 
-  --checkbox-color: hsl(207deg 100% 79%);
-  --checkbox-focus-color: hsl(207deg 100% 89%);
-  --checkbox-disabled-border-color: #000;
-  --checkbox-disabled-background-color: #333;
+  --checkbox-color: hsl(207deg 100% 29%);
+  --checkbox-focus-color: hsl(207deg 100% 69%);
+  --checkbox-disabled-border-color: #ccc;
+  --checkbox-disabled-background-color: #ddd;
 `;
+
+// const darkTheme = `
+//   --color: #ddd;
+//   --border-color: #444;
+//   --summary-border-color: #555;
+//   --background-color: hsl(0deg 0% 13%);
+//   --header-background-color: hsl(0deg 0% 10.5%);
+//   --row-hover-background-color: hsl(0deg 0% 9%);
+//   --row-selected-background-color: hsl(207deg 76% 42%);
+//   --row-selected-hover-background-color: hsl(207deg 76% 38%);
+
+//   --checkbox-color: hsl(207deg 100% 79%);
+//   --checkbox-focus-color: hsl(207deg 100% 89%);
+//   --checkbox-disabled-border-color: #000;
+//   --checkbox-disabled-background-color: #333;
+// `;
 
 const root = css`
   ${lightTheme}
